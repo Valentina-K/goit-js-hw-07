@@ -5,15 +5,7 @@ const items = creatGalleryItems(galleryItems);
 
 galleryBox.insertAdjacentHTML('beforeend', items);
 let gallery = new SimpleLightbox('.gallery a',
-    { captionDelay: 250 });
-gallery.on('show.simplelightbox', function (el) {
-    const elem = el.target.children[0]
-    elem.title = elem.alt;
-});
-gallery.on('changed.simplelightbox', function (el) {
-    const elem = el.target.children[0]
-    elem.title = elem.alt;
-})
+    { captionDelay: 250, captionsData: 'alt', captionPosition: 'bottom'});
 
 function creatGalleryItems(items) {
     return items.map(({ preview, original, description }) => {

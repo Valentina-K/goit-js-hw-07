@@ -34,7 +34,11 @@ function showModalWindow(element) {
         <div class="modal">
             <img class="gallery__image" src="${element.dataset.source}" alt="${element.alt}">        
         </div>
-    `)
+    `, {        
+        onShow: (instance) => {
+            instance.element().querySelector('.modal').onclick = instance.close
+        }
+    })
     backdrop = instance;
     window.addEventListener('keydown', onEscKeyPress);
     instance.show();
