@@ -37,7 +37,8 @@ function showModalWindow(element) {
     `, {        
         onShow: (instance) => {
             instance.element().querySelector('.modal').onclick = instance.close
-        }
+        },
+        onClose: (instance) => {}
     })
     backdrop = instance;
     window.addEventListener('keydown', onEscKeyPress);
